@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
 import json
 import os 
+from random import randint
 
 pgN = 0
 
@@ -70,4 +71,12 @@ def delete(id : int = Form(...)):
          return {
             "Card Deleted"
          }
+
+@app.get("/randomize",response_class=RedirectResponse)
+def random():
+    with open('sample.json', 'r+') as f:
+        data = json.load(f)
+        rand = randint(0,len(data)-1)
+        return ("http://127.0.0.1:8000/start/"+str(rand))
+
 
