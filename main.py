@@ -38,7 +38,7 @@ def start(request:Request,pg:int):
      entry = json.load(rf)
      if(len(entry) <= pg):
          raise Exception("Page Number Out Of Bounds")
-     return templates.TemplateResponse("card.html",{"request":request,"q":entry[pg][0],"a":entry[pg][1],"pg":pg})
+     return templates.TemplateResponse("card.html",{"title":entry[0][0],"request":request,"q":entry[pg][0],"a":entry[pg][1],"pg":pg})
 
 @app.get("/next",response_class=RedirectResponse)
 def change(): 
