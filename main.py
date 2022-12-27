@@ -58,7 +58,7 @@ def change():
  with open('sample.json', 'r+') as f:
     data = json.load(f)
     i = int(data[0][1]) - 1
-    if(len(data) <= i):
+    if(0 >= i):
          raise Exception("Page Number Out Of Bounds")
     data[0][1] = str(i)
     f.seek(0)        # <--- should reset file position to the beginning.
@@ -88,7 +88,7 @@ def delete(id : int = Form(...)):
 def random():
     with open('sample.json', 'r+') as f:
         data = json.load(f)
-        rand = randint(0,len(data)-1)
+        rand = randint(1,len(data)-1)
         return ("http://127.0.0.1:8000/start/"+str(rand))
 
 
