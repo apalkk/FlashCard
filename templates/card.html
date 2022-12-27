@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    <style>
+        body {
+            font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+
+            text-decoration: none;
+            color: initial;
+        }
+
+        .a {
+            margin: 3.5em;
+            flex: 0 0 150px;
+            height: 150px;
+            border-radius: 6px;
+            padding: 1em;
+            background: #fff;
+            transition: all 300ms;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            height: 20%;
+            width: 500px;
+            height: 50px;
+            border-radius: 5%;
+        }
+
+        .shadow {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+    </style>
+
+</head>
+
+<body style="background-color:#5e5d76">
+    <span style="font-family:monospace;border-radius: 6px;">Card Number : {{ pg }}</span>
+    <div class="a" data-tippy-content="Click to copy box-shadow #23"
+        style="box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;"
+        onclick="toggle_visibility('id');">
+        <span>
+            <h3>Question : {{ q }}</h3>
+        </span>
+        <span style="display:none" id="id">Answer : {{ a }}</span>
+    </div>
+    <button id="myButton" class="float-left submit-button">Next</button>
+    <script type="text/javascript">
+        document.getElementById("myButton").onclick = function () {
+            location.href = "http://127.0.0.1:8000/next";
+        };
+    </script>
+
+</body>
+
+</html>
