@@ -5,7 +5,8 @@ A tool to make and use flashcards on the localhost.
 * Then, ```uvicorn main:app --reload```
 
 # The JSON file is where every deck of cards is stored.
-* The json file should appear like this:```[
+* The json file should appear like this:```
+* [
     [
         "Title",
         "1"
@@ -17,7 +18,8 @@ A tool to make and use flashcards on the localhost.
     [
         "Quest Test2",
         "Ans Test2"
-    ],```
+    ]
+  ]```
 
 * The JSON consists of nested lists.
 * Every nested list has a length of 2, 0th index being the question and 1st being the answer.
