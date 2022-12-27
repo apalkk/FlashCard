@@ -53,6 +53,18 @@ def change():
     json.dump(data, f, indent=4)
     return ("http://127.0.0.1:8000/start/"+str(i))
 
+@app.get("/prev",response_class=RedirectResponse)
+def change(): 
+ with open('sample.json', 'r+') as f:
+    data = json.load(f)
+    i = int(data[0][1]) - 1
+    if(len(data) <= i):
+         raise Exception("Page Number Out Of Bounds")
+    data[0][1] = str(i)
+    f.seek(0)        # <--- should reset file position to the beginning.
+    json.dump(data, f, indent=4)
+    return ("http://127.0.0.1:8000/start/"+str(i))
+
 @app.on_event("startup")
 async def startup_event():
     with open('sample.json', 'r+') as f:

@@ -12,6 +12,29 @@
         }
     </script>
     <style>
+        .button2 {
+            background-color: rgba(51, 51, 51, 0.05);
+            border-radius: 8px;
+            border-width: 0;
+            color: #252a2a;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 10px 12px;
+            text-align: center;
+            transition: all 200ms;
+            vertical-align: baseline;
+            white-space: nowrap;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
         body {
             font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -72,14 +95,22 @@
         </span>
         <span style="display:none" id="id">Answer : {{ a }}</span>
     </div>
-    <button id="myButton" class="float-left submit-button">Next</button>
+    <button id="myButton" class="float-left submit-button button2">Next</button>
     <script type="text/javascript">
         document.getElementById("myButton").onclick = function () {
             location.href = "http://127.0.0.1:8000/next";
         };
     </script>
-    <form method="get" action="http://127.0.0.1:8000/randomize"  enctype="multipart/form-data">
-    <input type="submit"  value="Randomize">
+    <button id="mB" class="float-right submit-button button2">Previous</button>
+    <script type="text/javascript">
+        document.getElementById("mB").onclick = function () {
+            location.href = "http://127.0.0.1:8000/prev";
+        };
+    </script>
+    <div>
+        <form method="get" action="http://127.0.0.1:8000/randomize" enctype="multipart/form-data">
+            <input class="button2" type="submit" value="Randomize">
+    </div>
 
 </body>
 
