@@ -3,7 +3,7 @@
     {"src": "/FlashCard/main.py", "use": "@now/python"}
   ],
   "routes": [
-		{ "src": "/", "dest": "main.py" },
+		{ "src": "/(.*)", "dest": "main.py" },
 		{ "src": "/start/{pg}", "dest": "main.py" },
 		{ "src": "/next", "dest": "main.py"},
 		{ "src": "/prev", "dest": "main.py" },
