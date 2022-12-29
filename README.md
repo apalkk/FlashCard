@@ -1,6 +1,7 @@
 # FlashCard
 A tool to make and use flashcards on the localhost.
 
+* Activate your python environment or [download conda to set one up](https://docs.conda.io/en/latest/)
 * ```pip install fastapi``` if you don'y have it installed aldready
 * Then, ```uvicorn main:app --reload```
 
